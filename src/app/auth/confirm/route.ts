@@ -9,6 +9,7 @@ Go to the Auth templates page in your dashboard. In the Confirm signup template,
 change {{ .ConfirmationURL }} to {{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email. 
 
 */
+export const dynamic = 'force-dynamic';
 
 import { type EmailOtpType } from "@supabase/supabase-js";
 import { type NextRequest } from "next/server";
