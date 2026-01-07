@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { AdaptationContent } from "./AdaptationContent";
+import { AdaptationFullscreen } from "./AdaptationFullscreen";
 
 export const metadata: Metadata = {
   title: "Adaptación - Vínculo Felino",
@@ -7,6 +7,6 @@ export const metadata: Metadata = {
 };
 
 export default function AdaptationPage() {
-  return <AdaptationContent />;
+  return <AdaptationFullscreen />;
 }
 

@@ -8,41 +8,9 @@ ShipFree is a free alternative to ShipFast, designed to simplify and optimize yo
 
 - SEO Optimisation
 - User authentication with Supabase
+- Stripe and LemonSqueezy integration
 - Email notifications via Mailgun
 - Modern UI built with Next.js and TailwindCSS
-- Static site generation for GitHub Pages
-
-## GitHub Pages Setup
-
-Este proyecto está configurado para ser desplegado en GitHub Pages. Sigue estos pasos:
-
-### 1. Configurar Secrets en GitHub
-
-Ve a tu repositorio > Settings > Secrets and variables > Actions y agrega:
-
-- `NEXT_PUBLIC_SUPABASE_URL`: Tu URL de Supabase
-- `NEXT_PUBLIC_SUPABASE_ANON_KEY`: Tu clave anónima de Supabase
-
-### 2. Habilitar GitHub Pages
-
-1. Ve a tu repositorio > Settings > Pages
-2. En "Source", selecciona "GitHub Actions"
-3. Guarda los cambios
-
-### 3. Hacer Push a Main
-
-Cuando hagas push a la rama `main`, GitHub Actions automáticamente:
-- Instalará las dependencias
-- Construirá el sitio estático
-- Lo desplegará en GitHub Pages
-
-Tu sitio estará disponible en: `https://<tu-usuario>.github.io/<nombre-repo>/`
-
-### Notas Importantes
-
-- **APIs eliminadas**: Las rutas API (Stripe webhooks, LemonSqueezy, Mailgun) han sido eliminadas porque GitHub Pages solo soporta contenido estático
-- **Confirmación de email**: Ahora se maneja del lado del cliente
-- **Imágenes**: Están configuradas con `unoptimized: true` para compatibilidad con exportación estática
 
 ## Docker Setup
 

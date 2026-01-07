@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Heart, User } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { Heart, PawPrint, Cat } from 'lucide-react';
+import { useRouter, usePathname } from 'next/navigation';
 
 interface BottomNavbarProps {
   activeScreen?: string;
@@ -10,28 +10,34 @@ interface BottomNavbarProps {
 
 export const BottomNavbar: React.FC<BottomNavbarProps> = ({ activeScreen }) => {
   const router = useRouter();
+  const pathname = usePathname();
   
   const navItems = [
     { name: 'Adaptación', icon: Heart, href: '/dashboard/adaptation' },
-    { name: 'Perfil', icon: User, href: '/dashboard/profile' },
+    { name: 'Socialización', icon: PawPrint, href: '/dashboard/socialization' },
+    { name: 'Mi proceso', icon: Cat, href: '/dashboard/my-process' },
   ];
 
+  const isActive = (href: string) => {
+    return pathname.startsWith(href);
+  };
+
   return (
-    <nav className="lg:hidden fixed bottom-0 left-0 right-0 w-full bg-white flex justify-around items-center py-3 px-2 shadow-[0_-4px_20px_rgba(0,0,0,0.1)] border-t border-gray-100">
+    <nav className="fixed bottom-0 left-0 lg:left-64 right-0 w-full lg:w-auto bg-vf-pink flex justify-around items-center py-3 lg:py-4 px-4 shadow-[0_-4px_20px_rgba(0,0,0,0.15)] z-20 rounded-t-[30px]">
       {navItems.map((item) => (
         <button
           key={item.name}
-          className={`flex flex-col items-center justify-center p-3 text-xs font-sourceSans transition-all duration-200 rounded-xl ${
-            activeScreen === item.name 
-              ? 'text-vf-pink bg-vf-pink/10' 
-              : 'text-gray-500 hover:text-vf-pink hover:bg-gray-50'
+          className={`flex flex-col items-center justify-center p-2 transition-all duration-200 ${
+            isActive(item.href)
+              ? 'text-white scale-105' 
+              : 'text-white/70 hover:text-white hover:scale-105'
           }`}
           onClick={() => router.push(item.href)}
         >
-          <item.icon className={`w-7 h-7 mb-1 ${
-            activeScreen === item.name ? 'stroke-[2.5]' : 'stroke-[2]'
-          }`} />
-          <span className="font-medium">{item.name}</span>
+          <item.icon className={`w-7 h-7 lg:mb-1 ${
+            isActive(item.href) ? 'stroke-[2.5] fill-white/20' : 'stroke-[2]'
+          } ${item.icon === PawPrint ? 'rotate-[-30deg]' : ''}`} />
+          <span className="hidden lg:block text-xs font-sourceSans font-medium">{item.name}</span>
         </button>
       ))}
     </nav>

@@ -35,12 +35,13 @@ export const MarketingNavbar: React.FC = () => {
                 {link.name}
               </button>
             ))}
-            {/* Botón de Registro (estilo de botón) */}
+            {/* Botón de Iniciar sesión (estilo de botón) */}
             <button 
-              onClick={() => router.push('/auth/register')} 
-              className="font-arialRounded font-bold bg-vf-yellow text-vf-purple py-2 px-4 rounded-lg hover:bg-opacity-90 hover:text-vf-pink transition-colors"
+              onClick={() => router.push('/auth/login')} 
+              className="font-sourceSans font-semibold bg-vf-yellow py-2 px-6 rounded-full hover:bg-opacity-90 hover:shadow-md transition-all"
+              style={{ color: '#b15a81' }}
             >
-              Registro
+              Iniciar sesión
             </button>
           </div>
 
@@ -65,12 +66,13 @@ export const MarketingNavbar: React.FC = () => {
               {link.name}
             </button>
           ))}
-          {/* Botón de Registro (Móvil) */}
+          {/* Botón de Iniciar sesión (Móvil) */}
           <button 
-            onClick={() => { router.push('/auth/register'); setIsMenuOpen(false); }} 
-            className="my-2 py-2 px-4 rounded-lg font-arialRounded font-bold bg-vf-yellow text-vf-purple text-center w-full hover:bg-opacity-90 hover:text-vf-pink transition-colors"
+            onClick={() => { router.push('/auth/login'); setIsMenuOpen(false); }} 
+            className="my-2 py-2 px-6 rounded-full font-sourceSans font-semibold bg-vf-yellow text-center w-full hover:bg-opacity-90 hover:shadow-md transition-all"
+            style={{ color: '#b15a81' }}
           >
-            Registro
+            Iniciar sesión
           </button>
         </div>
       </div>
